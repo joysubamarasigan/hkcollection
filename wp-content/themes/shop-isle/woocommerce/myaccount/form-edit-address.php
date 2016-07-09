@@ -29,27 +29,33 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 <?php else : ?>
 
 	<form method="post">
+	
+	<div class="u-columns col1-set" id="customer_details">
+		<div class="u-column col-1" id="personal_div">
+			<fieldset>
+				<legend>
+					<?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title ); ?>
+				</legend>
+			</fieldset>
 
-		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title ); ?></h3>
+			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
-		<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
+			<?php foreach ( $address as $key => $field ) : ?>
 
-		<?php foreach ( $address as $key => $field ) : ?>
+				<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
 
-			<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+			<?php endforeach; ?>
 
-		<?php endforeach; ?>
+			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
-		<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
-
-		<p>
-			<input type="submit" class="button" name="save_address" value="<?php esc_attr_e( 'Save Address', 'woocommerce' ); ?>" />
-			<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
-			<input type="hidden" name="action" value="edit_address" />
-		</p>
-
+			<p style="text-align:center;">
+				<input type="submit" class="button" name="save_address" value="<?php esc_attr_e( 'Save Address', 'woocommerce' ); ?>" style="float: none; margin: 20px auto;"/>
+				<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
+				<input type="hidden" name="action" value="edit_address" />
+			</p>
+		</div>
+	</div>
 	</form>
-
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_edit_account_address_form' ); ?>
