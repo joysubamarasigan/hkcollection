@@ -22,19 +22,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_account_navigation' );
 ?>
+<script>
+	
+	jQuery(document).ready(function(){
+		jQuery('.is-active').addClass('active');
+	});
 
-<div style="border: solid green; margin-bottom: 0; padding: 5px;" class="woocommerce-tabs wc-tabs-wrapper woocommerce-MyAccount-navigation">
+</script>
+
+<div style="margin-bottom: 0; padding: 5px;" class="woocommerce-tabs wc-tabs-wrapper woocommerce-MyAccount-navigation">
 	<ul class="tabs wc-tabs" style="margin: 0;">
 		<?php
 		foreach ( wc_get_account_menu_items() as $endpoint => $label ) :
-			/**if($label != 'Dashboard' && $label != 'Logout'){**/
-				$active_class = ($label == 'Orders') ? 'active' : '';
+			if($label != 'Downloads'){
+				//$active_class = ($label == 'Dashboard') ? 'active' : '';
 		?>
-			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ) . ' ' . $active_class;?>">
+			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint )?>">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
 			</li>
 		<?php
-			//} 
+			} 
 		endforeach; ?>
 	</ul>
 </div>

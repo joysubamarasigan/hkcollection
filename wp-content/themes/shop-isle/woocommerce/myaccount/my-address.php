@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+
 $customer_id = get_current_user_id();
 
 if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
