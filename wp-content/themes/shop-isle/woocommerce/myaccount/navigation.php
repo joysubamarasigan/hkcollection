@@ -26,6 +26,10 @@ do_action( 'woocommerce_before_account_navigation' );
 	
 	jQuery(document).ready(function(){
 		jQuery('.is-active').addClass('active');
+
+		if(window.location.href.indexOf('view-order') > -1){
+			jQuery('.woocommerce-MyAccount-navigation-link--orders').addClass('active');
+		}
 	});
 
 </script>

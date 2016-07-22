@@ -58,8 +58,35 @@ legend{
     color: #FC68AE;
 }
 
-.related.products h2{
+.related.products h2,
+.single-product .product_title,
+.shop-item-title{
     color: #FC68AE !important;
+}
+
+.single-product .amount{
+    font-size: 16px;
+}
+
+.woocommerce-breadcrumb a{
+    /**color: #FC68AE !important;**/
+}
+
+.woocommerce-breadcrumb a:hover,
+.tagged_as a:hover,
+.posted_in a:hover{
+    color: #FC68AE !important;
+    text-decoration: underline;
+}
+
+div.quantity{
+    max-width: 100px;
+}
+
+.single-product div.product form.cart .button{
+    max-width: 200px;
+    float: left !important;
+    margin-left: 20px;
 }
 
 /**.page-header-module,**/
