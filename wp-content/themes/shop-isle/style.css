@@ -247,6 +247,10 @@ form input[type=submit],
     margin: 10px auto !important;
 }
 
+.hide_shipping_class{
+    display: none;
+}
+
 @media (max-width: 767px){
     #customer_login.col2-set .col-1,
     #customer_login.col2-set .col-2,
