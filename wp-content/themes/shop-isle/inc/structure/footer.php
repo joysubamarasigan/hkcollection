@@ -119,11 +119,11 @@ if ( ! function_exists( 'shop_isle_footer_copyright_and_socials' ) ) {
 												
 												
 												
-												echo '<a href="'. esc_url( $shop_isle_social_link ) .'"><span class="'.$shop_isle_social_icon_value.'"></span></a>';		
+												echo '<a href="'. esc_url( $shop_isle_social_link ) .'"><span class="'.esc_attr( $shop_isle_social_icon_value ).'"></span></a>';
 												
 											} else {
 												
-												echo '<a href="'.esc_url($shop_isle_social->link).'"><span class="'.$shop_isle_social->icon_value.'"></span></a>';					
+												echo '<a href="'.esc_url($shop_isle_social->link).'"><span class="'.esc_attr( $shop_isle_social->icon_value ).'"></span></a>';
 											}
 									
 										}

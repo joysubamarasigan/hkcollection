@@ -1,8 +1,5 @@
 <?php
 
-add_image_size( 'shop_isle_blog_image_size', 750, 500, true );
-add_image_size( 'shop_isle_banner_homepage', 360, 235, true );
-
 add_filter( 'image_size_names_choose', 'shop_isle_media_uploader_custom_sizes' );
 function shop_isle_media_uploader_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
@@ -73,14 +70,14 @@ add_action( 'woocommerce_checkout_order_review', 'shop_isle_coupon_after_order_t
 
 
 // Ensure cart contents update when products are added to the cart via AJAX )
-add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
-function woocommerce_header_add_to_cart_fragment( $fragments ) {
+add_filter( 'woocommerce_add_to_cart_fragments', 'shop_isle_woocommerce_header_add_to_cart_fragment' );
+function shop_isle_woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
 	?>
 
-		<a href="<?php echo WC()->cart->get_cart_url() ?>" title="<?php _e( 'View your shopping cart','shop-isle' ); ?>" class="cart-contents">
+		<a href="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart','shop-isle' ); ?>" class="cart-contents">
 			<span class="icon-basket"></span>
-			<span class="cart-item-number"><?php echo trim( WC()->cart->get_cart_contents_count() ); ?></span>
+			<span class="cart-item-number"><?php echo esc_html( trim( WC()->cart->get_cart_contents_count() ) ); ?></span>
 		</a>
 
 	<?php

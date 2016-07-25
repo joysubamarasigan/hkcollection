@@ -4,10 +4,6 @@
  *
  */
 
-add_image_size( 'shop_isle_cart_item_image_size', 58, 72, true );
-
-
-
 /**
  * Before Content
  * Wraps all WooCommerce content in wrappers which match the theme markup
@@ -226,7 +222,7 @@ function shop_isle_header_shop_page( $page_title ) {
 
 	$shop_isle_header_image = get_header_image();
 	if( !empty($shop_isle_header_image) ):
-		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="'.$shop_isle_header_image.'">';
+		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="'.esc_url( $shop_isle_header_image ).'">';
 	else:
 		$shop_isle_title = '<section class="page-header-module module bg-dark">';
 	endif;
@@ -400,8 +396,8 @@ function shop_isle_products_slider_on_single_page() {
 										echo '<div class="owl-item">';
 											echo '<div class="col-sm-12">';
 												echo '<div class="ex-product">';
-													echo '<a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a>';
-													echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
+													echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 														$product = new WC_Product( get_the_ID() );
 														$rating_html = $product->get_rating_html( $product->get_average_rating() );
 														if ( $rating_html && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
@@ -463,8 +459,8 @@ function shop_isle_products_slider_on_single_page() {
 										echo '<div class="owl-item">';
 											echo '<div class="col-sm-12">';
 												echo '<div class="ex-product">';
-													echo '<a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a>';
-													echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
+													echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 														$product = new WC_Product( get_the_ID() );
 														$rating_html = $product->get_rating_html( $product->get_average_rating() );
 														if ( $rating_html && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {

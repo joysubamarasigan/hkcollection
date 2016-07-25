@@ -1,4 +1,4 @@
-(function($){
+(function($,window){
 
 	/* ---------------------------------------------- /*
 	 * Preloader
@@ -347,7 +347,31 @@
 			$('html, body').animate({ scrollTop: 0 }, 'slow');
 			return false;
 		});
-		
+
+        /* ---------------------------------------------- /*
+         * Dropdown mennu on tablet
+         /* ---------------------------------------------- */
+        var $menuBtnChildren = $('.menu-item-has-children'),
+            submenuOpenClass = 'open',
+            $thisParent,
+            $menuWrap = $('.header-menu-wrap');
+        $menuBtnChildren.click(function(event){
+            if( mobileTest && !$(this).hasClass(submenuOpenClass) && window.innerWidth > 767 ) {
+                $thisParent = $(this).parent('ul').parent('li');
+                if( $thisParent.hasClass(submenuOpenClass) ){
+                    $thisParent.find('.'+submenuOpenClass).removeClass(submenuOpenClass);
+                } else {
+                    $menuWrap.find('.'+submenuOpenClass).removeClass(submenuOpenClass);
+                }
+                $(this).addClass(submenuOpenClass);
+                event.stopPropagation();
+                return false;
+            }
+        });
+
+        $('html,body,.main,.navbar-custom,.bottom-page-wrap').click(function(){
+            $menuWrap.find('.'+submenuOpenClass).removeClass(submenuOpenClass);
+        });
 
 	});
 
@@ -360,4 +384,4 @@
 		}
 	});
 
-})(jQuery);
+})(jQuery, window);

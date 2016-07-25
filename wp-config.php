@@ -20,6 +20,8 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+define('WP_CACHE', false); //Added by WP-Cache Manager
+define( 'WPCACHEHOME', 'C:\xampp\htdocs\hkcollection\wp-content\plugins\wp-super-cache/' ); //Added by WP-Cache Manager
 define('DB_NAME', 'hkcollection');
 
 /** MySQL database username */
@@ -77,8 +79,9 @@ $table_prefix  = 'hkcollection_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
+ini_set('max_execution_time', 30000); 
 define('WP_DEBUG', false);
-
+define('DISABLE_CACHE', true);
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

@@ -1,4 +1,13 @@
 
+### 2.1.11 - 01/07/2016
+**Changes:** 
+- Update license for resources
+- Fixed issue with Team members not appearing when everything is empty, except the picture
+- Fixed alignment issues with multiple Our Team and Our Advantages on About page
+- Fixes layout issue with frontpage slider when WooCommerce not installed
+- Fixed responsive issue with dropdown menu on tablets
+- Fixed issue with slider arrow on IE and Edge
+
 ### 2.1.10 - 04/06/2016
 **Changes:** 
 - Fixed errors in customize when WooCommerce is not installed

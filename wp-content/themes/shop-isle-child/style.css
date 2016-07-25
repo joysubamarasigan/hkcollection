@@ -1,0 +1,311 @@
+/*
+Theme Name:   	ShopIsle Child Theme
+Theme URI:    	http://themeisle.com/themes/shop-isle/
+Author:       	Joy Marasigan
+Author URI:		https://themeisle.com
+Template:       shop-isle
+Description:  	Child theme of SHopIsle specifically made for HKC Gift Shop
+Version:      	2.1.12
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  	shop-isle-child
+Tags:         	two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, footer-widgets, e-commerce
+*/
+
+
+body{
+    font-size: 14px;
+}
+
+.btn.btn-b,
+.single_add_to_cart_button,
+.add_to_cart_button,
+.navbar-custom .sub-menu,
+.navbar-custom .children
+{
+    background-color: #FC68AE !important;
+    color: #FFF !important;
+}
+
+.page-loader{
+    background: #FC9AC6 !important;
+}
+
+.module-title,
+.copyright.font-alt,
+.features-title.font-alt,
+.team-descr.font-alt,
+.widget .widget-title,
+.widget .page_item a,
+.widget .product-title,
+.woocommerce-account h2{
+    font-family: Verdana;
+}
+
+.module-title,
+.features-icon,
+legend{
+    color: #FC68AE;
+}
+
+.related.products h2,
+.single-product .product_title,
+.shop-item-title{
+    color: #FC68AE !important;
+}
+
+.single-product .amount{
+    font-size: 16px;
+}
+
+.woocommerce-breadcrumb a,
+.tagged_as a,
+.posted_in a,
+.order-number a,
+.order-actions a{
+    color: #FC68AE !important;
+}
+
+.woocommerce-breadcrumb a:hover,
+.tagged_as a:hover,
+.posted_in a:hover,
+.order-number a:hover,
+.order-actions a:hover,
+.cat-item a:hover{
+    color: #FC68AE !important;
+    text-decoration: underline;
+}
+
+.widget .tagcloud a{
+    background: #FC68AE !important;
+}
+
+.widget .tagcloud a:hover{
+    color: #FFFFFF !important;
+}
+
+div.quantity{
+    max-width: 100px;
+}
+
+.single-product div.product form.cart .button{
+    max-width: 200px;
+    float: left !important;
+    margin-left: 20px;
+}
+
+/**.page-header-module,**/
+.shop-isle-poweredby-box{
+    display: none !important;
+}
+
+.navbar.navbar-custom.navbar-fixed-top
+{
+    background-color: rgba(252,104,174, 1);
+}
+
+.page .navbar-custom
+{
+    background-color: rgba(252,104,174, 1) !important;
+}
+
+.price_slider_amount button,
+form input[type=submit],
+.widget_shopping_cart_content .buttons a,
+.widget_price_filter .ui-slider .ui-slider-handle,
+.wc-proceed-to-checkout .button.checkout-button,
+.header-search-input,
+.wc-backward,
+span.onsale{
+    background-color: rgba(252,104,174, 0.9) !important;
+    font-family: Verdana;
+    border-color: #FC9AC6 !important;
+}
+
+.product .product-button-wrap .add_to_cart_button,
+.product .product-button-wrap .product_type_simple,
+ul.products li.product .product-button-wrap .button.product_type_simple,
+.shop-item .product-button-wrap .product_type_simple {
+    background: rgba(252,104,174, 0.9) !important;
+}
+
+.woocommerce-product-search input[type=submit]{
+    background: transparent none repeat scroll 0 0 !important;
+}
+
+.footer.bg-dark{
+    background-color: rgba(252,104,174, 1) !important;
+}
+
+.navbar-transparent{
+    background: transparent !important;
+}
+
+.btn.btn-border-w:hover,
+.btn.btn-border-w:focus{
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, .75);
+}
+
+/**.home-slider-overlay{
+    background: #404040 !important;
+}**/
+
+.bg-dark{
+    background: #404040;
+}
+
+.page_item a,
+.header-search-button,
+.navbar-cart-inner .icon-basket,
+form input[type=submit],
+.bg-dark a{
+    color: #FFF !important;
+}
+
+.navbar-custom .sub-menu > li > a, .navbar-custom .children > li > a{
+    color: #FFF !important;
+    border-bottom: 1px solid rgba(252,104,174, 0.15) !important;
+}
+
+.navbar-custom .nav li > a {
+    position: relative;
+    color: #FFF !important;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: Verdana;
+}
+
+.navbar-cart-inner .cart-item-number{
+    background: #FFF !important;
+}
+
+.header-search-button{
+    font-size: 16px;
+}
+
+*::-moz-selection{
+    background: #FC68AE none repeat scroll 0 0;
+    color: #fff;
+}
+
+::selection{
+    background: #FC68AE none repeat scroll 0 0;
+    color: #fff;
+}
+
+.woocommerce-MyAccount-navigation ul{
+    list-type-display: none;
+}
+
+.woocommerce-MyAccount-navigation-link{
+    display: inline;
+}
+
+.woocommerce-MyAccount-navigation-link--customer-logout{
+    float: right;
+}
+
+.logo-image img {
+    max-height: 150px;
+    max-width: 200px;
+}
+
+.star-rating span{
+    overflow: visible !important;
+}
+
+#customer_login.col2-set,
+#personal_details.col2-set{
+    width: 100%;
+}
+
+#customer_login.col2-set .col-1,
+#personal_details.col2-set .col-1{
+    float: left;
+    width: 48%;
+    border-bottom: none;
+    border-right: 1px dotted rgba(0, 0, 0, 0.1);
+    
+}
+
+#personal_details.col2-set .col-1{
+    border: none;
+}
+
+#customer_login.col2-set .col-2,
+#personal_details.col2-set .col-2{
+    float: right;
+    width: 48%;
+}
+
+#customer_login h2{
+    font-family: Verdana !important;
+    text-align: center;
+}
+
+.customer_login_buttons{
+    text-align: center;
+}
+
+#login_div,
+#register_div,
+#personal_div,
+#password_div{
+    padding: 25px;
+}
+
+#register_button,
+#login_button{
+    float: none;
+    margin: auto;
+}
+
+.lost_password{
+    margin-top: 20px;
+}
+
+.forgot_password_div{
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+}
+
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout{
+    float: right !important;
+}
+
+.woocommerce-info{
+    max-width: 95%;
+    margin: 10px auto !important;
+}
+
+.hide_shipping_class{
+    display: none;
+}
+
+@media (max-width: 767px){
+    #customer_login.col2-set .col-1,
+    #customer_login.col2-set .col-2,
+    #personal_details.col2-set .col-1,
+    #personal_details.col2-set .col-2{
+        float: none;
+        width: 100%;
+    }
+
+    #customer_login.col2-set .col-1{
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+        border-right: none;
+    }
+
+    .forgot_password_div{
+        width: 80%;
+        margin: auto;
+        padding: 30px;
+    }
+
+    .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout{
+        float: left !important;
+    }
+}
+

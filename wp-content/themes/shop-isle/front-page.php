@@ -269,14 +269,14 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 															}
 															if ( defined( 'YITH_WCQV' ) ) {
 
-																echo '<a href="#" class="button yith-wcqv-button" data-product_id="' . get_the_ID() . '">'.__( 'Quick View','shop-isle' ).'</a>';
+																echo '<a href="#" class="button yith-wcqv-button" data-product_id="' . esc_attr( get_the_ID() ) . '">'.__( 'Quick View','shop-isle' ).'</a>';
 
 															}
 														}	
 													echo '</div><!-- .shop-item-detail -->';
 												echo '</div><!-- .shop-item-image -->';
 												
-												echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+												echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 										
 												if( function_exists( 'get_rating_html' ) ) {
 													$rating_html = $product->get_rating_html( $product->get_average_rating() );
@@ -318,7 +318,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 									echo '<div class="row mt-30">';
 										echo '<div class="col-sm-12 align-center">';
 											if( function_exists('woocommerce_get_page_id') ) {
-												echo '<a href="'.get_permalink( woocommerce_get_page_id( 'shop' )).'" class="btn btn-b btn-round">'.__('See all products','shop-isle').'</a>';
+												echo '<a href="'.esc_url( get_permalink( woocommerce_get_page_id( 'shop' )) ).'" class="btn btn-b btn-round">'.__('See all products','shop-isle').'</a>';
 											}
 										echo '</div>';
 									echo '</div>';
@@ -374,14 +374,14 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 															}
 															if ( defined( 'YITH_WCQV' ) ) {
 
-																echo '<a href="#" class="button yith-wcqv-button" data-product_id="' . get_the_ID() . '">'.__( 'Quick View','shop-isle' ).'</a>';
+																echo '<a href="#" class="button yith-wcqv-button" data-product_id="' . esc_attr( get_the_ID() ) . '">'.__( 'Quick View','shop-isle' ).'</a>';
 
 															}
 														}
 													echo '</div><!-- .shop-item-detail -->';
 												echo '</div><!-- .shop-item-image -->';
 												
-												echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+												echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 
 												if( function_exists( 'get_rating_html' ) ) {
 													$rating_html = $product->get_rating_html( $product->get_average_rating() );
@@ -423,7 +423,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 								echo '<div class="row mt-30">';
 									echo '<div class="col-sm-12 align-center">';
 										if( function_exists('woocommerce_get_page_id') ) {
-											echo '<a href="'.get_permalink( woocommerce_get_page_id( 'shop' )).'" class="btn btn-b btn-round">'.__('See all products','shop-isle').'</a>';
+											echo '<a href="'.esc_url( get_permalink( woocommerce_get_page_id( 'shop' )) ).'" class="btn btn-b btn-round">'.__('See all products','shop-isle').'</a>';
 										}
 									echo '</div>';
 								echo '</div>';
@@ -551,9 +551,9 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 										echo '<div class="col-sm-12">';
 											echo '<div class="ex-product">';
 												if( function_exists('woocommerce_get_product_thumbnail') ) {
-													echo '<a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a>';
+													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
 												}
-												echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+												echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 
 												if( function_exists( 'get_rating_html' ) ) {
 													$rating_html = $product->get_rating_html( $product->get_average_rating() );
@@ -619,9 +619,9 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 										echo '<div class="col-sm-12">';
 											echo '<div class="ex-product">';
 												if( function_exists('woocommerce_get_product_thumbnail') ) {
-													echo '<a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a>';
+													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
 												}
-												echo '<h4 class="shop-item-title font-alt"><a href="'.get_permalink().'">'.get_the_title().'</a></h4>';
+												echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
 
 												if( function_exists( 'get_rating_html' ) ) {
 													$rating_html = $product->get_rating_html( $product->get_average_rating() );

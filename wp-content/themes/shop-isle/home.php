@@ -7,7 +7,7 @@
 <?php
 $shop_isle_header_image = get_header_image();
 if( !empty($shop_isle_header_image) ):
-	echo '<section class="module bg-dark" data-background="'.$shop_isle_header_image.'">';
+	echo '<section class="module bg-dark" data-background="'.esc_url($shop_isle_header_image).'">';
 else:
 	echo '<section class="module bg-dark">';
 endif;
@@ -48,7 +48,7 @@ echo '</section><!-- .module -->';
 ?>
 	<!-- Header section end -->
 
-	<!-- Blog standar start -->
+	<!-- Blog standard start -->
 <?php
 $shop_isle_posts_per_page = get_option('posts_per_page'); /* number of latest posts to show */
 
@@ -79,7 +79,7 @@ if( !empty($shop_isle_posts_per_page) && ($shop_isle_posts_per_page > 0) ):
 								<?php
 								if ( has_post_thumbnail() ) {
 									echo '<div class="post-thumbnail">';
-									echo '<a href="'.get_permalink().'">';
+									echo '<a href="'.esc_url( get_permalink() ).'">';
 									echo get_the_post_thumbnail($post->ID, 'shop_isle_blog_image_size');
 									echo '</a>';
 									echo '</div>';
@@ -87,7 +87,7 @@ if( !empty($shop_isle_posts_per_page) && ($shop_isle_posts_per_page > 0) ):
 								?>
 
 								<div class="post-header font-alt">
-									<h2 class="post-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="post-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 									<div class="post-meta">
 										<?php
 										shop_isle_posted_on();
@@ -108,7 +108,7 @@ if( !empty($shop_isle_posts_per_page) && ($shop_isle_posts_per_page > 0) ):
 								</div>
 
 								<div class="post-more">
-									<a href="<?php echo get_permalink(); ?>" class="more-link"><?php _e('Read more','shop-isle'); ?></a>
+									<a href="<?php echo esc_url( get_permalink() ); ?>" class="more-link"><?php _e('Read more','shop-isle'); ?></a>
 								</div>
 
 							</div>
@@ -139,7 +139,7 @@ if( !empty($shop_isle_posts_per_page) && ($shop_isle_posts_per_page > 0) ):
 
 			</div>
 		</section>
-		<!-- Blog standar end -->
+		<!-- Blog standard end -->
 
 		<?php
 		/* Restore original Post Data */

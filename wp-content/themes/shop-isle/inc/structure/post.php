@@ -76,7 +76,7 @@ if ( ! function_exists( 'shop_isle_paging_nav' ) ) {
 		echo '<div class="clear"></div>';
 		?>
 		<nav class="navigation paging-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'shop-isle' ); ?></h1>
+			<h1 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'shop-isle' ); ?></h1>
 			<div class="nav-links">
 				<?php if ( get_next_posts_link() ) : ?>
 					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'shop-isle' ) ); ?></div>
@@ -133,7 +133,7 @@ if ( ! function_exists( 'shop_isle_posted_on' ) ) {
 		);
 
 		if( !empty($time_string) ):
-			echo '<a href="' . get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j')) . '" rel="bookmark">' . $time_string . '</a> | ';
+			echo '<a href="' . esc_url( get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j')) ) . '" rel="bookmark">' . $time_string . '</a> | ';
 		endif;
 		
 	
@@ -147,7 +147,7 @@ if ( ! function_exists( 'shop_isle_posted_on' ) ) {
 			$shop_isle_comments = __('1 Comment','shop-isle');
 		}
 		if( !empty($shop_isle_comments) ):
-			echo '<a href="' . get_comments_link() .'">'. $shop_isle_comments.'</a> | ';
+			echo '<a href="' . esc_url( get_comments_link() ) .'">'. esc_attr($shop_isle_comments).'</a> | ';
 		endif;	
 										
 		$shop_isle_categories = get_the_category();
@@ -155,7 +155,7 @@ if ( ! function_exists( 'shop_isle_posted_on' ) ) {
 		$shop_isleoutput = '';
 		if($shop_isle_categories){
 			foreach($shop_isle_categories as $shop_isle_category) {
-				$shop_isleoutput .= '<a href="'.get_category_link( $shop_isle_category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s", 'shop-isle' ), $shop_isle_category->name ) ) . '">'.$shop_isle_category->cat_name.'</a>'.$separator;
+				$shop_isleoutput .= '<a href="'.esc_attr(get_category_link( $shop_isle_category->term_id )).'" title="' . esc_attr( sprintf( __( "View all posts in %s", 'shop-isle' ), $shop_isle_category->name ) ) . '">'.$shop_isle_category->cat_name.'</a>'.$separator;
 			}
 			echo trim($shop_isleoutput, $separator);
 		}

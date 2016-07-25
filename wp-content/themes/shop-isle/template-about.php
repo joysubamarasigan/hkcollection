@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php
 			$shop_isle_header_image = get_header_image();
 			if( !empty($shop_isle_header_image) ) {
-				echo '<section class="page-header-module module bg-dark" data-background="'.$shop_isle_header_image.'">';
+				echo '<section class="page-header-module module bg-dark" data-background="'.esc_url( $shop_isle_header_image ).'">';
 			} else {
 				echo '<section class="page-header-module module bg-dark">';
 			}
@@ -163,7 +163,7 @@ get_header(); ?>
 																				$shop_isle_team_member_image_url = icl_t( 'Team member '.$shop_isle_team_member->id, 'Team member image', $shop_isle_team_member->image_url );
 																				echo '<img src="'. esc_url( $shop_isle_team_member_image_url ).'" alt="">';
 																			} else {
-																				echo '<img src="'. esc_url( $shop_isle_team_member_image_url ).'" alt="">';
+																				echo '<img src="'. esc_url( $shop_isle_team_member->image_url ).'" alt="">';
 																			}
 																		}
 																		
@@ -231,7 +231,7 @@ get_header(); ?>
 		<?php
 			$shop_isle_about_page_video_background = get_theme_mod('shop_isle_about_page_video_background',get_template_directory_uri().'/assets/images/background-video.jpg');
 			if( !empty($shop_isle_about_page_video_background) ):
-				echo '<section class="module bg-dark-60 about-page-video" data-background="'.$shop_isle_about_page_video_background.'">';
+				echo '<section class="module bg-dark-60 about-page-video" data-background="'.esc_url( $shop_isle_about_page_video_background ).'">';
 			else:
 				echo '<section class="module bg-dark-60 about-page-video">';
 			endif;
@@ -248,12 +248,12 @@ get_header(); ?>
 								$shop_isle_about_page_video_link = get_theme_mod('shop_isle_about_page_video_link');
 								if( !empty($shop_isle_about_page_video_link) ):
 									echo '<div class="video-box-icon">';
-										echo '<a href="'.$shop_isle_about_page_video_link.'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
+										echo '<a href="'.esc_url( $shop_isle_about_page_video_link ).'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
 									echo '</div>';
 								endif;
 								if( empty($shop_isle_about_page_video_link) && isset( $wp_customize ) ):
 									echo '<div class="video-box-icon shop_isle_hidden_if_not_customizer">';
-										echo '<a href="'.$shop_isle_about_page_video_link.'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
+										echo '<a href="'.esc_url( $shop_isle_about_page_video_link ).'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
 									echo '</div>';
 								endif;
 								
@@ -317,9 +317,9 @@ get_header(); ?>
 											
 												if (function_exists ( 'icl_t' ) && !empty($shop_isle_advantage->id)){
 													$shop_isle_advantage_icon_value = icl_t( 'Advantage '.$shop_isle_advantage->id, 'Advantage icon',$shop_isle_advantage->icon_value );
-													echo '<span class="'.$shop_isle_advantage_icon_value.'"></span>';
+													echo '<span class="'.esc_attr( $shop_isle_advantage_icon_value ).'"></span>';
 												} else {
-													echo '<span class="'.$shop_isle_advantage->icon_value.'"></span>';
+													echo '<span class="'.esc_attr( $shop_isle_advantage->icon_value ).'"></span>';
 												}
 												
 											echo '</div>';

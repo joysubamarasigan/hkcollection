@@ -7,9 +7,10 @@
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
-if ( ! isset( $content_width ) ) {
-	$content_width = 980; /* pixels */
+function shop_isle_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'shop_isle_content_width', 980 );
 }
+add_action( 'after_setup_theme', 'shop_isle_content_width', 0 );
 
 /**
  * Assign the ShopIsle version to a var
@@ -53,6 +54,9 @@ if ( ! function_exists( 'shop_isle_setup' ) ) :
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'shop_isle_cart_item_image_size', 58, 72, true );
+		add_image_size( 'shop_isle_blog_image_size', 750, 500, true );
+		add_image_size( 'shop_isle_banner_homepage', 360, 235, true );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
@@ -175,39 +179,39 @@ function shop_isle_widgets_init() {
 function shop_isle_scripts() {
 	global $shop_isle_version;
 	
-	wp_enqueue_style( 'shop-isle-bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '20120206', "all"  );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '20120206', "all"  );
 		
-	wp_enqueue_style( 'shop-isle-magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '20120206', "all"  );
+	wp_enqueue_style( 'magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '20120206', "all"  );
 	
-	wp_enqueue_style( 'shop-isle-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css', array('shop-isle-magnific-popup'), '20120206', "all"  );
+	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/assets/css/flexslider.css', array('magnific-popup'), '20120206', "all"  );
 
-	wp_enqueue_style( 'shop-isle-owl-carousel', get_template_directory_uri() . '/assets/css/owl.carousel.css', array('shop-isle-flexslider'), '20120206', "all"  );
+	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/assets/css/owl.carousel.css', array('flexslider'), '20120206', "all"  );
 
-	wp_enqueue_style( 'shop-isle-animate', get_template_directory_uri() . '/assets/css/animate.css', array('shop-isle-owl-carousel'), '20120206', "all"  );
+	wp_enqueue_style( 'shop-isle-animate', get_template_directory_uri() . '/assets/css/animate.css', array('owl-carousel'), '20120206', "all"  );
 
-	wp_enqueue_style( 'shop-isle-main-style', get_template_directory_uri() . '/assets/css/style.css', array('shop-isle-bootstrap'), '20120206', "all" );
+	wp_enqueue_style( 'shop-isle-main-style', get_template_directory_uri() . '/assets/css/style.css', array('bootstrap'), '20120206', "all" );
 	
 	wp_enqueue_style( 'shop-isle-style', get_stylesheet_uri(), '', $shop_isle_version );
 	
 	wp_enqueue_script( 'jquery' );
 	
-	wp_enqueue_script( 'shop-isle-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-jquery-mb-YTPlayer', get_template_directory_uri() . '/assets/js/jquery.mb.YTPlayer.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'jquery-mb-YTPlayer', get_template_directory_uri() . '/assets/js/jquery.mb.YTPlayer.min.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-jqBootstrapValidation', get_template_directory_uri() . '/assets/js/jqBootstrapValidation.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'jqBootstrapValidation', get_template_directory_uri() . '/assets/js/jqBootstrapValidation.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-magnific-popup', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.min.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-fitvids', get_template_directory_uri() . '/assets/js/jquery.fitvids.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/assets/js/jquery.fitvids.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-owl', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'), '20120206', true );
 	
-	wp_enqueue_script( 'shop-isle-custom', get_template_directory_uri() . '/assets/js/custom.js', array('jquery','shop-isle-flexslider','shop-isle-jquery-mb-YTPlayer'), '20120206', true );
+	wp_enqueue_script( 'shop-isle-custom', get_template_directory_uri() . '/assets/js/custom.js', array('jquery','flexslider','jquery-mb-YTPlayer'), '20120206', true );
 
 	wp_enqueue_script( 'shop-isle-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), '20120206', true );
 

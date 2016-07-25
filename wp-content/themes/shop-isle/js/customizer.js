@@ -299,12 +299,12 @@
 	} );
 	wp.customize( 'shop_isle_404_title', function( value ) {
 		value.bind( function( to ) {
-			$( '.error-page-title' ).text( to );
+			$( '.error-page-title' ).html( to );
 		} );
 	} );
 	wp.customize( 'shop_isle_404_text', function( value ) {
 		value.bind( function( to ) {
-			$( '.error-page-text' ).text( to );
+			$( '.error-page-text' ).html( to );
 		} );
 	} );
 	wp.customize( 'shop_isle_404_link', function( value ) {
