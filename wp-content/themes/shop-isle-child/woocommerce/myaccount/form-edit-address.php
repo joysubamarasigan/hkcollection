@@ -20,7 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$load_address = 'billing';
+$load_address = ($load_address == '') ? 'billing' : $load_address;
+
+$customer_id = get_current_user_id();
+
+if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
+	$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
+		'billing' => __( 'Billing Address', 'woocommerce' ),
+		'shipping' => __( 'Shipping Address', 'woocommerce' )
+	), $customer_id );
+} else {
+	$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
+		'billing' =>  __( 'Billing & Shipping Address', 'woocommerce' )
+	), $customer_id );
+}
 
 $page_title = ( $load_address === 'billing' ) ? __( 'Billing Address', 'woocommerce' ) : __( 'Shipping Address', 'woocommerce' );
 
@@ -30,31 +43,46 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	
 	<div class="u-columns col1-set" id="customer_details">
 		<div class="u-column col-1" id="personal_div">
+
+		<?php
+
+			foreach($get_addresses as $name => $title):
+
+				$address = WC()->checkout()->checkout_fields[$name];
+			
+		?>
 			<fieldset>
 				<legend>
 					<?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title ); ?>
 				</legend>
-			</fieldset>
 
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
 			<?php 
-				echo "woocommerce_before_edit_address_form_{$load_address}" . "<pre>";
-				print_r($address);
-				echo "</pre>";
-				foreach ($address as $key => $field ) : ?>
+				
+				foreach ($address as $key => $field ) :
 
-				<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+				if(!isset($field['value'])){
+				
+					$address[$key]['value'] = get_user_meta( $customer_id, $key, true);
 
-			<?php endforeach; ?>
+				}
+				
+				woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[$key] ) : $address[$key]['value']); ?>
+
+			<?php endforeach;?>
+
+			</fieldset>
+
+		<?php endforeach; ?>
 
 			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
-			<p style="text-align:center;">
-				<input type="submit" class="button" name="save_address" value="<?php esc_attr_e( 'Save Address', 'woocommerce' ); ?>" style="float: none; margin: 20px auto;"/>
-				<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
-				<input type="hidden" name="action" value="edit_address" />
-			</p>
+				<p style="text-align:center;">
+					<input type="submit" class="button" name="save_address" value="<?php esc_attr_e( 'Save Address', 'woocommerce' ); ?>" style="float: none; margin: 20px auto;"/>
+					<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
+					<input type="hidden" name="action" value="edit_address" />
+				</p>
 		</div>
 	</div>
 	</form>

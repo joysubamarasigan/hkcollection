@@ -15,6 +15,7 @@ Tags:         	two-columns, left-sidebar, right-sidebar, custom-background, cust
 
 body{
     font-size: 14px;
+    font-family: Arial;
 }
 
 .btn.btn-b,
@@ -23,12 +24,8 @@ body{
 .navbar-custom .sub-menu,
 .navbar-custom .children
 {
-    background-color: #FC68AE !important;
+    background-color: #FF0080 !important;
     color: #FFF !important;
-}
-
-.page-loader{
-    background: #FC9AC6 !important;
 }
 
 .module-title,
@@ -37,7 +34,9 @@ body{
 .team-descr.font-alt,
 .widget .widget-title,
 .widget .page_item a,
+.widget .product-categories a,
 .widget .product-title,
+.widget .product_list_widget a,
 .woocommerce-account h2{
     font-family: Verdana;
 }
@@ -45,13 +44,13 @@ body{
 .module-title,
 .features-icon,
 legend{
-    color: #FC68AE;
+    color: #FF0080;
 }
 
 .related.products h2,
 .single-product .product_title,
 .shop-item-title{
-    color: #FC68AE !important;
+    color: #FF0080 !important;
 }
 
 .single-product .amount{
@@ -62,8 +61,13 @@ legend{
 .tagged_as a,
 .posted_in a,
 .order-number a,
-.order-actions a{
-    color: #FC68AE !important;
+.order-actions a,
+a.reset_variations{
+    color: #FF0080 !important;
+}
+
+.reset_variations{
+    margin-left: 5px;
 }
 
 .woocommerce-breadcrumb a:hover,
@@ -71,13 +75,16 @@ legend{
 .posted_in a:hover,
 .order-number a:hover,
 .order-actions a:hover,
-.cat-item a:hover{
-    color: #FC68AE !important;
+a.reset_variations:hover,
+#personal_div a:hover,
+.sidebar-shop .widget_product_categories a:hover
+{
+    color: #FF0080 !important;
     text-decoration: underline;
 }
 
 .widget .tagcloud a{
-    background: #FC68AE !important;
+    background: #FF0080 !important;
 }
 
 .widget .tagcloud a:hover{
@@ -86,6 +93,10 @@ legend{
 
 div.quantity{
     max-width: 100px;
+}
+
+.order-actions a{
+    margin-right: 5px;
 }
 
 .single-product div.product form.cart .button{
@@ -101,12 +112,12 @@ div.quantity{
 
 .navbar.navbar-custom.navbar-fixed-top
 {
-    background-color: rgba(252,104,174, 1);
+    background-color: rgba(255, 0, 128, 1);
 }
 
 .page .navbar-custom
 {
-    background-color: rgba(252,104,174, 1) !important;
+    background-color: rgba(255, 0, 128, 1) !important;
 }
 
 .price_slider_amount button,
@@ -117,7 +128,7 @@ form input[type=submit],
 .header-search-input,
 .wc-backward,
 span.onsale{
-    background-color: rgba(252,104,174, 0.9) !important;
+    background-color: rgba(255, 0, 128, 0.9) !important;
     font-family: Verdana;
     border-color: #FC9AC6 !important;
 }
@@ -126,7 +137,7 @@ span.onsale{
 .product .product-button-wrap .product_type_simple,
 ul.products li.product .product-button-wrap .button.product_type_simple,
 .shop-item .product-button-wrap .product_type_simple {
-    background: rgba(252,104,174, 0.9) !important;
+    background: rgba(255, 0, 128, 0.9) !important;
 }
 
 .woocommerce-product-search input[type=submit]{
@@ -134,7 +145,7 @@ ul.products li.product .product-button-wrap .button.product_type_simple,
 }
 
 .footer.bg-dark{
-    background-color: rgba(252,104,174, 1) !important;
+    background-color: rgba(255, 0, 128, 1) !important;
 }
 
 .navbar-transparent{
@@ -165,7 +176,7 @@ form input[type=submit],
 
 .navbar-custom .sub-menu > li > a, .navbar-custom .children > li > a{
     color: #FFF !important;
-    border-bottom: 1px solid rgba(252,104,174, 0.15) !important;
+    /**border-bottom: 1px solid rgba(255, 0, 128, 0.15) !important;**/
 }
 
 .navbar-custom .nav li > a {
@@ -185,12 +196,12 @@ form input[type=submit],
 }
 
 *::-moz-selection{
-    background: #FC68AE none repeat scroll 0 0;
+    background: #FF0080 none repeat scroll 0 0;
     color: #fff;
 }
 
 ::selection{
-    background: #FC68AE none repeat scroll 0 0;
+    background: #FF0080 none repeat scroll 0 0;
     color: #fff;
 }
 
@@ -284,7 +295,17 @@ form input[type=submit],
     display: none;
 }
 
+.widget_search input.search-submit{
+    background-color: transparent !important;
+}
+
 @media (max-width: 767px){
+    
+    .navbar-fixed-top .navbar-collapse,
+    .navbar-transparent{
+        background-color: rgba(255, 0, 128, 1) !important;
+    }
+
     #customer_login.col2-set .col-1,
     #customer_login.col2-set .col-2,
     #personal_details.col2-set .col-1,

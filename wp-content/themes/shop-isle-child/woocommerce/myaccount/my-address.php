@@ -44,7 +44,8 @@ $col    = 1;
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) echo '<div class="u-columns woocommerce-Addresses col2-set addresses">'; ?>
 
-<?php foreach ( $get_addresses as $name => $title ) : ?>
+<?php
+	foreach ( $get_addresses as $name => $title ) : ?>
 
 	<div class="u-column<?php echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
 		<fieldset>
@@ -67,7 +68,7 @@ $col    = 1;
 					'country'     => get_user_meta( $customer_id, $name . '_country', true )
 				), $customer_id, $name );
 
-				$formatted_address = WC()->countries->get_formatted_address( $address );
+				$formatted_address = WC()->countries->get_formatted_address($address);
 
 				if ( ! $formatted_address )
 					_e( 'You have not set up this type of address yet.', 'woocommerce' );

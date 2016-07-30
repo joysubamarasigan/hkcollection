@@ -13,21 +13,21 @@ get_header(); ?>
 		<!-- Header section start -->
 		
 		<?php
-			/**$shop_isle_header_image = get_header_image();
+			$shop_isle_header_image = get_header_image();
 			if( !empty($shop_isle_header_image) ) {
-				echo '<section class="page-header-module module" data-background="'.esc_url( $shop_isle_header_image ).'">';
+				echo '<section class="page-header-module module bg-dark" data-background="'.esc_url( $shop_isle_header_image ).'">';
 			} else {
-				echo '<section style="padding: 100px 0 5px; background: #FFFFFF !important;" class="page-header-module module">';
-			}**/
+				echo '<section class="page-header-module module bg-dark">';
+			}
 		?>
-				<!--<div class="container">
+				<div class="container">
 
 						<div class="row">
 
-							<div class="col-sm-10 col-sm-offset-1">-->
+							<div class="col-sm-10 col-sm-offset-1">
 
-								<h1><?php the_title(); ?></h1>
-								
+								<h1 class="module-title font-alt"><?php the_title(); ?></h1>
+
 								<?php
 
 								/* Header description */
@@ -45,21 +45,17 @@ get_header(); ?>
 								}
 								?>
 
-							<!--</div>
+							</div>
 
 						</div><!-- .row -->
 
-					<!--</div><!-- .container
+					</div><!-- .container -->
 				</section><!-- .page-header-module -->
 				<!-- Header section end -->
 				
 				<!-- About start -->
-				<section style="text-align: center; color: #FC68AE; padding-top: 30px;">
-					<h1><?php the_title(); ?></h1>
-				</section>
-				<hr class="divider-w">
 				<?php
-					
+				
 					if ( have_posts() ) { 
 						while ( have_posts() ) { 
 							

@@ -13,12 +13,12 @@ get_header(); ?>
 	
 		<!-- Header section start -->
 		<?php
-		/**$shop_isle_header_image = get_header_image();
+		$shop_isle_header_image = get_header_image();
 		if( !empty($shop_isle_header_image) ):
 			echo '<section class="page-header-module module bg-dark" data-background="'.esc_url( $shop_isle_header_image ).'">';
 		else:
 			echo '<section class="page-header-module module bg-dark">';
-		endif;**/
+		endif;
 		?>
 			<div class="container">
 
